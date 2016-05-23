@@ -1,0 +1,2 @@
+update pedagogu set Password = sha1(Username);
+

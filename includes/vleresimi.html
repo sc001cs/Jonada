@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title><?php echo $page_title; ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="../includes/bootstrap.css" rel="stylesheet">
+    <link href="../includes/mystyle.css" rel="stylesheet">
+    <script src="../includes/jquery.js"></script>
+
+</head>
+
+<?php
+
+    // Terhiq pyetjet nga DB
+    $query = @mysqli_query($dbc, "select question from exam_question where id_lecture = '$id_lecture'");
+    $pyetjet = array();
+
+    if ($query) { // If it ran OK, display the records.
+    // Fetch and print all the records:
+    while ($row = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+    $pyetjet[] = $row['question'];
+    } }
+    $pyetja1 = $pyetjet[0]; $pyetja2 = $pyetjet[1]; $pyetja3 = $pyetjet[2]; $pyetja4 = $pyetjet[3];
+    $pyetja5 = $pyetjet[4]; $pyetja6 = $pyetjet[5]; $pyetja7 = $pyetjet[6]; $pyetja8 = $pyetjet[7];
+    $pyetja9 = $pyetjet[8]; $pyetja10 = $pyetjet[9];
+
+    // Terhiq visibility
+    
+    // Terhiq pyetjen alternative 1 nga DB
+    $query10 = @mysqli_query($dbc, "select visibility from exam_question where id_lecture = '$id_lecture'  order by orders asc");
+    $vis = array();
+    
+    if ($query10) { // If it ran OK, display the records.
+    // Fetch and print all the records:
+    while ($row = mysqli_fetch_array($query10, MYSQLI_ASSOC)) {
+    $vis[] = $row['visibility'];
+    } }
+    $v1_2 = $vis[1]; $v1_3 = $vis[2]; $v1_4 = $vis[3];
+    $v1_5 = $vis[4]; $v1_6 = $vis[5]; $v1_7 = $vis[6]; $v1_8 = $vis[7];
+    $v1_9 = $vis[8]; $v1_10 = $vis[9];
+    
+    function getVisibility($hiddenV) {
+        
+        if($hiddenV == "1") {
+            return ' ';
+        } else {
+            return ' style="display: none;" ';
+        }
+        return '';
+    }
+    
+     $counter = 1;
+        
+        if($v1_2 == "1")
+            $counter++;
+        if($v1_3 == "1")
+            $counter++;
+        if($v1_4 == "1")
+            $counter++;
+        if($v1_5 == "1")
+            $counter++;
+        if($v1_6 == "1")
+            $counter++;
+        if($v1_7 == "1")
+            $counter++;
+        if($v1_8 == "1")
+            $counter++;
+        if($v1_9 == "1")
+            $counter++;
+        if($v1_10 == "1")
+            $counter++;
+    
+    ///////////////////////////////////////////////////////////
+    
+    // Terhiq pyetjen alternative 1 nga DB
+    $query1 = @mysqli_query($dbc, "select answer1 from exam_question where id_lecture = '$id_lecture'  order by orders asc");
+    $answer1 = array();
+    
+    if ($query1) { // If it ran OK, display the records.
+    // Fetch and print all the records:
+    while ($row = mysqli_fetch_array($query1, MYSQLI_ASSOC)) {
+    $answer1[] = $row['answer1'];
+    } }
+    $answer1_1 = $answer1[0]; $answer1_2 = $answer1[1]; $answer1_3 = $answer1[2]; $answer1_4 = $answer1[3];
+    $answer1_5 = $answer1[4]; $answer1_6 = $answer1[5]; $answer1_7 = $answer1[6]; $answer1_8 = $answer1[7];
+    $answer1_9 = $answer1[8]; $answer1_10 = $answer1[9];
+    
+    // Terhiq pyetjen alternative 2 nga DB
+    $query2 = @mysqli_query($dbc, "select answer2 from exam_question where id_lecture = '$id_lecture'  order by orders asc");
+    $answer2 = array();
+    
+    if ($query2) { // If it ran OK, display the records.
+    // Fetch and print all the records:
+    while ($row = mysqli_fetch_array($query2, MYSQLI_ASSOC)) {
+    $answer2[] = $row['answer2'];
+    } }
+    $answer2_1 = $answer2[0]; $answer2_2 = $answer2[1]; $answer2_3 = $answer2[2]; $answer2_4 = $answer2[3];
+    $answer2_5 = $answer2[4]; $answer2_6 = $answer2[5]; $answer2_7 = $answer2[6]; $answer2_8 = $answer2[7];
+    $answer2_9 = $answer2[8]; $answer2_10 = $answer2[9];
+    
+    // Terhiq pyetjen alternative 3 nga DB
+    $query3 = @mysqli_query($dbc, "select answer3 from exam_question where id_lecture = '$id_lecture'  order by orders asc");
+    $answer3 = array();
+    
+    if ($query3) { // If it ran OK, display the records.
+    // Fetch and print all the records:
+    while ($row = mysqli_fetch_array($query3, MYSQLI_ASSOC)) {
+    $answer3[] = $row['answer3'];
+    } }
+    $answer3_1 = $answer3[0]; $answer3_2 = $answer3[1]; $answer3_3 = $answer3[2]; $answer3_4 = $answer3[3];
+    $answer3_5 = $answer3[4]; $answer3_6 = $answer3[5]; $answer3_7 = $answer3[6]; $answer3_8 = $answer3[7];
+    $answer3_9 = $answer3[8]; $answer3_10 = $answer3[9];   
+    
+    
+    // Terhiq pyetjen alternative 4 nga DB
+    $query4 = @mysqli_query($dbc, "select answer4 from exam_question where id_lecture = '$id_lecture'  order by orders asc");
+    $answer4 = array();
+    
+    if ($query4) { // If it ran OK, display the records.
+    // Fetch and print all the records:
+    while ($row = mysqli_fetch_array($query4, MYSQLI_ASSOC)) {
+    $answer4[] = $row['answer4'];
+    } }
+    $answer4_1 = $answer4[0]; $answer4_2 = $answer4[1]; $answer4_3 = $answer4[2]; $answer4_4 = $answer4[3];
+    $answer4_5 = $answer4[4]; $answer4_6 = $answer4[5]; $answer4_7 = $answer4[6]; $answer4_8 = $answer4[7];
+    $answer4_9 = $answer4[8]; $answer4_10 = $answer4[9];   
+    
+    // Time live
+    $livetime = date('d/m/Y');
+ 
+    ?>
+    
+<?php
+
+$p1_1 = '
+            <tr>
+                <td class="bg"><label class="text-center"><input type="radio" name="question1" value="A">
+                </label></td>
+
+                <td class="bg-as"><p style="color: crimson">' .$answer1_1. '</p></td>
+            </tr>
+';
+            
+$p1_2 = '
+            <tr>
+                <td class="bg"><label class="text-center"><input type="radio" name="question1" value="B">
+                </label></td>
+
+                <td class="bg-as"><p style="color: crimson">' .$answer2_1. '</p></td>
+            </tr>
+';
+$p1_3 = '            
+            <tr>
+                <td class="bg"><label class="text-center"><input type="radio" name="question1" value="C">
+                </label></td>
+
+                <td class="bg-as"><p style="color: crimson">' .$answer3_1. '</p></td>
+            </tr>
+';
+$p1_4 = '            
+            <tr>
+                <td class="bg"><label class="text-center"><input type="radio" name="question1" value="D">
+                </label></td>
+
+                <td class="bg-as"><p style="color: crimson">' .$answer4_1. '</p></td>
+            </tr>
+';
+
+$array1 = array($p1_1, $p1_2, $p1_3, $p1_4);
+shuffle($array1);
+
+
+$p2_1 = '
+ <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question2" value="A">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer1_2. '</p></td>
+        </tr>
+        ';
+$p2_2 = '        
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question2" value="B">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer2_2. '</p></td>
+        </tr>
+        ';
+$p2_3 = '        
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question2" value="C">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer3_2. '</p></td>
+        </tr>
+        ';
+$p2_4 = '        
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question2" value="D">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer4_2. '</p></td>
+        </tr>
+        ';
+$array2 = array($p2_1, $p2_2, $p2_3, $p2_4);
+shuffle($array2);        
+
+$p3_1 = '
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question3" value="A">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer1_3. '</p></td>
+        </tr>
+        ';
+$p3_2 = '        
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question3" value="B">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer2_3. '</p></td>
+        </tr>
+        ';
+$p3_3 = '        
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question3" value="C">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer3_3. '</p></td>
+        </tr>
+        ';
+      $p3_4 = '  
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question3" value="D">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer4_3. '</p></td>
+        </tr> ';
+$array3 = array($p3_1, $p3_2, $p3_3, $p3_4);
+shuffle($array3);   
+       
+$p4_1 = ' 
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question4" value="A">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer1_4. '</p></td>
+        </tr>
+        ';
+$p4_2 = '         
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question4" value="B">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer2_4. '</p></td>
+        </tr>
+        ';
+$p4_3 = '         
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question4" value="C">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer3_4. '</p></td>
+        </tr>
+        ';
+$p4_4 = '         
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question4" value="D">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer4_4. '</p></td>
+        </tr>
+        ';
+        
+$array4 = array($p4_1, $p4_2, $p4_3, $p4_4);
+shuffle($array4);   
+
+$p5_1 = '   
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question5" value="A">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer1_5. '</p></td>
+        </tr>
+        ';
+$p5_2 = '          
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question5" value="B">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer2_5. '</p></td>
+        </tr>
+        ';
+$p5_3 = '          
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question5" value="C">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer3_5. '</p></td>
+        </tr>
+        ';
+$p5_4 = '          
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question5" value="D">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer4_5. '</p></td>
+        </tr>
+';
+$array5 = array($p5_1, $p5_2, $p5_3, $p5_4);
+shuffle($array5);  
+
+$p6_1 = ' 
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question6" value="A">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer1_6. '</p></td>
+        </tr>
+        ';
+$p6_2 = '        
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question6" value="B">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer2_6. '</p></td>
+        </tr>
+        ';
+$p6_3 = '        
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question6" value="C">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer3_6. '</p></td>
+        </tr>
+        ';
+$p6_4 = '        
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question6" value="D">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer4_6. '</p></td>
+        </tr>
+';
+$array6 = array($p6_1, $p6_2, $p6_3, $p6_4);
+shuffle($array6);  
+
+
+
+$p7_1 = ' 
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question7" value="A">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer1_7. '</p></td>
+        </tr>
+        ';
+$p7_2 = '         
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question7" value="B">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer2_7. '</p></td>
+        </tr>
+        ';
+$p7_3 = '         
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question7" value="C">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer3_7. '</p></td>
+        </tr>
+        ';
+$p7_4 = '         
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question7" value="D">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer4_7. '</p></td>
+        </tr>
+';
+$array7 = array($p7_1, $p7_2, $p7_3, $p7_4);
+shuffle($array7); 
+
+$p8_1 = '  
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question8" value="A">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer1_8. '</p></td>
+        </tr>
+        ';
+$p8_2 = '          
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question8" value="B">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer2_8. '</p></td>
+        </tr>
+        ';
+$p8_3 = '          
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question8" value="C">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer3_8. '</p></td>
+        </tr>
+        ';
+$p8_4 = '          
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question8" value="D">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer4_8. '</p></td>
+        </tr>
+';
+$array8 = array($p8_1, $p8_2, $p8_3, $p8_4);
+shuffle($array8); 
+
+$p9_1 = ' 
+<tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question9" value="A">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer1_9. '</p></td>
+        </tr>
+        ';
+$p9_2 = '         
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question9" value="B">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer2_9. '</p></td>
+        </tr>
+        ';
+$p9_3 = '         
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question9" value="C">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer3_9. '</p></td>
+        </tr>
+        ';
+$p9_4 = '         
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question9" value="D">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer4_9. '</p></td>
+        </tr>
+';
+$array9 = array($p9_1, $p9_2, $p9_3, $p9_4);
+shuffle($array9); 
+
+$p10_1 = ' 
+<tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question10" value="A">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer1_10. '</p></td>
+        </tr>
+        ';
+$p10_2 = '         
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question10" value="B">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer2_10. '</p></td>
+        </tr>
+        ';
+$p10_3 = '         
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question10" value="C">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer3_10. '</p></td>
+        </tr>
+        ';
+$p10_4 = '         
+        <tr>
+            <td class="bg"><label class="text-center"><input type="radio" name="question10" value="D">
+            </label></td>
+
+            <td class="bg-as"><p style="color: crimson">' . $answer4_10. '</p></td>
+        </tr>
+';
+$array10 = array($p10_1, $p10_2, $p10_3, $p10_4);
+shuffle($array10); 
+
+
+?>    
+    
+<body>
+
+<div class="position-center">
+
+    <h4>The exam - CIT Online Exam System</h4>
+
+    <div class="ugly-border"></div>
+
+    <h5 style="color: crimson">Academic Session: 2015/2016 / Date: <?php echo $livetime ?></h5>
+
+    <h5 style="color: crimson">Course title: <em><?php echo $namelecture; ?></em></h5>
+
+    <p style="color: crimson">To ensure a high quality as in the entirety of the test, please answer the following
+        questions with <u>seriousness and sincerity</u>. You note that all your answers will not contain your name and
+        will be treated confidentially. </p>
+
+    <form id="form" action="" method="POST">
+
+        <div class="ugly-border"></div>
+
+        <table border="0" class="table table_up">
+            <tr>
+                <td colspan="2" class="shit"><h4 class="question"><?php echo $pyetja1; ?></h4></td>
+            </tr>
+
+            <?php 
+            
+            foreach ($array1 as $number) {
+                echo $number;
+            }
+            
+            ?>
+
+        </table>
+
+
+        <table border="0" class="table table_up"
+        <?php echo getVisibility($v1_2) ?> >
+        <tr>
+            <td colspan="2" class="shit"><h4 class="question"><?php echo $pyetja2; ?></h4></td>
+        </tr>
+       
+          <?php 
+            
+            foreach ($array2 as $number) {
+                echo $number;
+            }
+            
+            ?>
+        
+        </table>
+
+
+        <table border="0" class="table table_up"
+        <?php echo getVisibility($v1_3) ?>>
+        <tr>
+            <td colspan="2" class="shit"><h4 class="question"><?php echo $pyetja3; ?></h4></td>
+        </tr>
+
+        <?php 
+            
+            foreach ($array3 as $number) {
+                echo $number;
+            }
+        ?>
+        </table>
+
+
+        <table border="0" class="table table_up"
+        <?php echo getVisibility($v1_4) ?>>
+        <tr>
+            <td colspan="2" class="shit"><h4 class="question"><?php echo $pyetja4; ?></h4></td>
+        </tr>
+ <?php 
+            
+            foreach ($array4 as $number) {
+                echo $number;
+            }
+        ?>
+        </table>
+
+
+        <table border="0" class="table table_up"
+        <?php echo getVisibility($v1_5) ?>>
+        <tr>
+            <td colspan="2" class="shit"><h4 class="question"><?php echo $pyetja5; ?></h4></td>
+        </tr>
+<?php 
+            
+            foreach ($array5 as $number) {
+                echo $number;
+            }
+        ?>
+        </table>
+
+        <table border="0" class="table table_up"
+        <?php echo getVisibility($v1_6) ?>>
+        <tr>
+            <td colspan="2" class="shit"><h4 class="question"><?php echo $pyetja6; ?></h4></td>
+        </tr>
+ <?php 
+            
+            foreach ($array6 as $number) {
+                echo $number;
+            }
+            
+            ?>
+        </table>
+
+
+        <table border="0" class="table table_up"
+        <?php echo getVisibility($v1_7) ?>>
+        <tr>
+            <td colspan="2" class="shit"><h4 class="question"><?php echo $pyetja7; ?></h4></td>
+        </tr>
+ <?php 
+            
+            foreach ($array7 as $number) {
+                echo $number;
+            }
+            
+            ?>
+        </table>
+
+
+        <table border="0" class="table table_up"
+        <?php echo getVisibility($v1_8) ?>>
+        <tr>
+            <td colspan="2" class="shit"><h4 class="question"><?php echo $pyetja8; ?></h4></td>
+        </tr>
+<?php 
+            
+            foreach ($array8 as $number) {
+                echo $number;
+            }
+            
+            ?>
+        </table>
+
+
+        <table border="0" class="table table_up"
+        <?php echo getVisibility($v1_9) ?>>
+        <tr>
+            <td colspan="2" class="shit"><h4 class="question"><?php echo $pyetja9; ?></h4></td>
+        </tr>
+        <?php 
+            
+            foreach ($array9 as $number) {
+                echo $number;
+            }
+            
+            ?>
+        </table>
+
+            <table border="0" class="table table_up"
+            <?php echo getVisibility($v1_10) ?>>
+        <tr>
+            <td colspan="2" class="shit"><h4 class="question"><?php echo $pyetja10; ?></h4></td>
+        </tr>
+        <?php 
+            
+            foreach ($array10 as $number) {
+                echo $number;
+            }
+            
+            ?>
+            </table>
+
+
+            <input id="send" class="btn btn-danger btn-large header-vleresim1" type="submit" value="Finish the exam!">
+
+            <div class="ugly-border"></div>
+
+
+    </form>
+
+
+    <script>
+
+        $(document).on('submit', 'form', function () {
+
+            var validate = true;
+            var unanswecrimson = new Array();
+            var verifyAnswer =
+            <?php echo $counter; ?>;
+            console.log(verifyAnswer);
+
+            // Loop through available sets
+            $('.table').each(function () {
+                // Question text
+                var question = $(this).find(".question");
+                // Validate
+                if (!$(this).find('input').is(':checked')) {
+                    // Didn't validate ... dispaly alert or do something
+                    unanswecrimson.push(question.text());
+                    question.css('color', 'crimson'); // Highlight unanswecrimson question
+                    validate = false;
+                }
+            });
+
+            if (unanswecrimson.length > 0 && verifyAnswer !== 10 - unanswecrimson.length) {
+                msg = "The question without asnwer:\n\n" + unanswecrimson.join('\n');
+                alert(msg);
+            } else {
+                alert("Done!\n\n Thank you for your time.");
+                validate = true;
+//                    window.close();
+            }
+            return validate;
+        });
+
+
+    </script>

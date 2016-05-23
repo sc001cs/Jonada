@@ -1,0 +1,124 @@
+
+.position-center {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h4 {
+    margin-left: 1%;   
+    color: crimson;
+}
+
+h2 {
+    margin-left: 1%;   
+    color: #2d6987;
+}
+
+.header-vleresim1 {
+    margin-left: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.header-vleresim {
+    color: #005580;
+    margin-left: 25px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.radio {
+    margin-left: 1%;
+}
+
+.radio-style {
+    margin: 3px;  
+    margin-bottom: 2px;
+    border: 1px solid #dddddd;
+    border-collapse: separate;
+    *border-collapse: collapse;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+
+.table_up {
+    
+}
+
+.bg {
+    width: 10%;
+    padding-top: 3px;
+    margin-bottom: 3px;
+    padding-bottom: auto;
+    padding-right: 5px;
+}
+
+.bg-as {
+    width: 80%;
+    padding-top: 3px;
+    margin-bottom: 3px;
+    padding-bottom: auto;
+    padding-right: 5px;
+}
+
+.padding-td {
+    margin-bottom: -5px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.padding-td1 {
+    margin-bottom: -5px;
+/*    padding-left: 35px;
+    padding-right: 35px;*/
+    width: 14%
+}
+
+.padding-td-head {
+    width: 14%;
+    padding-bottom: auto;
+}
+
+.bullshit {
+    width: 400px;
+    padding-bottom: auto;
+    padding-right: 5px;
+}
+
+.bullis {
+    width: 100%;
+}
+
+.shit {
+    width: 100%;
+    /*background-color: #7ab5d3;*/
+    font-size: large;
+    padding-left: 8px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+.shit1 {
+    background-color: #7ab5d3;
+    font-size: large;
+    padding-left: 8px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+.ugly-border {
+    border: crimson solid 1px;
+}
+
+.lefter {
+    margin-left: 15px;
+}
+
+.lefters {
+    padding-left: 15px;
+    font-size: larger;
+    font: bold;
+}

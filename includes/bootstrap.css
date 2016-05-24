@@ -6347,7 +6347,13 @@ a, a:focus{
 }
 
 .nice-center {
-    width: 50%;
+     width: 50%;
+     margin-left: auto;
+     margin-right: auto;
+ }
+
+.nice-center-2 {
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
 }

@@ -15,14 +15,7 @@ $islecturer = "{$_SESSION['islecturer']}";
 $host= gethostname();
 $ip = gethostbyname($host);
 
-if ($ip == '192.168.1.4') {
-   echo "<h4 class='alert alert-danger'><span style='text-align:left;'>Your ip has been banned " . $ip . "</h4>";
-} else {
-    
-    $host= gethostname();
-    $ip = gethostbyname($host);
-    
-    echo $ip;
+
     
 if($id != '' && $islecturer == 0) {
 
@@ -75,8 +68,6 @@ mysqli_free_result($r);
      header("Location: http://localhost/jonada/index.php");
 }
 
-}
-    
 ?>
 
 <?php include ('includes/footer_login_1.html'); 

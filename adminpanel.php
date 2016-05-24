@@ -52,6 +52,7 @@ echo '
             <li><a href="#ModifikoStudent" data-toggle="tab">Modify the student</a></li>
             <li><a  href="createNewUser.php?id='.$id.'">Create new student</a><li>
             <li><a href="#Fshi" data-toggle="tab">Delete the student</a></li>    
+            <li><a  href="ipRangeClassrom.php?islecturer='.$islecturer.'">Create/Delete IP range</a><li>
 
         </ul> 
 

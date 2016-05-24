@@ -5,7 +5,13 @@ $page_title = 'CIT Online Exam System';
 include ('includes/header_silabus.html');
 
 require ('mysql_connect.php');
+
+$qrowsQ = " select * from ip_range ";
+$rowsQ = mysqli_query($dbc, $qrowsQ);
+
 ?>
+<?php
+echo '
 
 
 <ul class="nav nav-pills" >
@@ -23,7 +29,7 @@ require ('mysql_connect.php');
 
             <div class="input-prepend ">
                 <span class="add-on">School</span>
-                <select class="combobox" name="school" style="width: 134%" id="selectSchool" >
+                <select class="combobox" name="school" style="width: 480px;" id="selectSchool" >
                     <option></option>
                     <option value="ECONOMY">Economy</option>
                     <option value="ENGINEERING">Engineering</option>
@@ -32,7 +38,7 @@ require ('mysql_connect.php');
             
             <div class="input-prepend ">
                 <span class="add-on">Programs</span>
-                <select class="combobox" name="programs" style="width: 127%" id="selectProgram" >
+                <select class="combobox" name="programs" style="width: 480px;" id="selectProgram" >
                     <option></option>
                     <option value="UNDER">Undergraduate</option>
                     <option value="GRATUATE">Graduate</option>
@@ -41,7 +47,7 @@ require ('mysql_connect.php');
             
             <div class="input-prepend ">
                 <span class="add-on">Department</span>
-                <select class="combobox" name="department" style="width: 101%" id="selectDepartment" >
+                <select class="combobox" name="department" style="width: 480px;" id="selectDepartment" >
                     <option></option>
                     <option value="Industrial Engineering">Industrial Engineering</option>
                     <option value="Software Engineering">Software Engineering</option>
@@ -52,7 +58,7 @@ require ('mysql_connect.php');
             
             <div class="input-prepend ">
                 <span class="add-on">Academic year</span>
-                <select class="combobox" name="academicYear" style="width: 145%" id="selectAcademicYear" >
+                <select class="combobox" name="academicYear" style="width: 480px;" id="selectAcademicYear" >
                     <option></option>
                     <option value="I Year">I Year</option>
                     <option value="II Year">II Year</option>
@@ -62,12 +68,12 @@ require ('mysql_connect.php');
             
             <div class="input-prepend ">
                 <span class="add-on">Course title</span>
-                <input class="input-mesatarrr" type="text" id="prependedInput"  name="coursetitle"   />
+                <input class="input-mesatarrr" type="text" style="width: 466px;" id="prependedInput"  name="coursetitle"   />
             </div> <br>
 
             <div class="input-prepend ">
                 <span class="add-on">Type</span>
-                <select class="combobox" name="type" style="width: 140%" id="selectType" >
+                <select class="combobox" name="type" style="width: 480px;" id="selectType" >
                     <option></option>
                     <option value="Elective">Elective</option>
                     <option value="Required">Required</option>
@@ -76,7 +82,7 @@ require ('mysql_connect.php');
             
             <div class="input-prepend ">
                 <span class="add-on">Term</span>
-                <select class="combobox" name="term" style="width: 124%" id="selectTerm" >
+                <select class="combobox" name="term" style="width: 480px;" id="selectTerm" >
                     <option></option>
                     <option value="FALL">Fall</option>
                     <option value="SPRING">Spring</option>
@@ -86,34 +92,35 @@ require ('mysql_connect.php');
             
             <div class="input-prepend">
                 <span class="add-on">Dean</span>
-                <input class="input-mesatarrr" type="text" id="prependedInput"  name="dean"   />
+                <input class="input-mesatarrr" type="text" style="width: 466px;" id="prependedInput"  name="dean"   />
             </div>
             <br>
 
             <div class="input-prepend ">
                 <span class="add-on">Email</span>
-                <input class="input-mesatarrr" type="text" id="prependedInput"  name="email"   />
+                <input class="input-mesatarrr" type="text" style="width: 466px;" id="prependedInput"  name="email"   />
             </div>
 
             <div class="input-prepend ">
                 <span class="add-on">Lecturer</span>
-                <input class="input-mesatarrr" type="text" id="prependedInput"  name="lecturer"   />
+                <input class="input-mesatarrr" type="text" style="width: 466px;" id="prependedInput"  name="lecturer"   />
             </div>
 
             <div class="input-prepend ">
                 <span class="add-on">The classroom lecture</span>
-                <select class="combobox" name="classroom" style="width: 70%" id="selectClass" >
-                    <option></option>
-                    <option value="ITCLASS">IT Classroom - Range (192.168.1.10 - 192.168.1.60)</option>
-                    <option value="ITCLASS2">IT Classroom II - Range (192.168.1.61 - 192.168.1.100)</option>
-                    <option value="LABCLASS">Laboratory Classroom - Range (192.168.1.101 - 192.168.1.140)</option>
-                    <option value="LABCLASS2">Laboratory Classroom II - Range (192.168.1.141 - 192.168.1.180)</option>
+                <select class="combobox" name="classroom" style="width: 480px;" id="selectClass" >
+                    <option></option>';
+                    while ($row2 = mysqli_fetch_array($rowsQ, MYSQLI_ASSOC)) {
+                    echo '
+                    <option value = "'.$row2['classroomname'].'" > '.$row2['classroomname'].' - Range(192.168.1.'.$row2['ip1'].' - 192.168.1.'.$row2['ip2'].')</option >';
+                    }
+                    echo '
                 </select>
-            </div>
+            </div><br>
             
             <div class="input-prepend ">
                 <span class="add-on">Code Activation</span>
-                <input class="input-mesatarrr" type="text" id="prependedInput"  name="codeactivation" 
+                <input class="input-mesatarrr" type="text" style="width: 466px;" id="prependedInput"  name="codeactivation"
                        name="codeactivation" />
             </div>
 
@@ -553,7 +560,8 @@ require ('mysql_connect.php');
         console.log(changeVisible);
         count++;
     }
-</script>        
+</script>       ';
+?>
         
 <?php
 // Check if the form has been submitted:

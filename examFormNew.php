@@ -29,7 +29,8 @@ echo '
 
             <div class="input-prepend ">
                 <span class="add-on">School</span>
-                <select class="combobox" name="school" style="width: 480px;" id="selectSchool" >
+                <select class="combobox" name="school" style="width: 480px;"
+                 onchange="changeSchool()" id="selectSchool" >
                     <option></option>
                     <option value="ECONOMY">Economy</option>
                     <option value="ENGINEERING">Engineering</option>
@@ -38,7 +39,8 @@ echo '
             
             <div class="input-prepend ">
                 <span class="add-on">Programs</span>
-                <select class="combobox" name="programs" style="width: 480px;" id="selectProgram" >
+                <select class="combobox" name="programs" style="width: 480px;"
+                  onchange="changeYears()" id="selectProgram" >
                     <option></option>
                     <option value="UNDER">Undergraduate</option>
                     <option value="GRATUATE">Graduate</option>
@@ -560,6 +562,110 @@ echo '
         console.log(changeVisible);
         count++;
     }
+    
+    
+    
+    function changeYears() {
+        
+        document.getElementById("selectAcademicYear").options.length = 0;
+        
+        var selected = document.getElementById("selectProgram");
+        var selectedYear = document.getElementById("selectAcademicYear");
+        
+        if(selected.selectedIndex == 1) {
+            var option = document.createElement("option");
+            option.text = "";
+            option.value = "";
+            
+            var option1 = document.createElement("option");
+            option1.text = "I Year";
+            option1.value = "I Year";
+            
+            var option2 = document.createElement("option");
+            option2.text = "II Year";
+            option2.value = "II Year";
+            
+            var option3 = document.createElement("option");
+            option3.text = "III Year";
+            option3.value = "III Year";
+            
+            selectedYear.appendChild(option);
+            selectedYear.appendChild(option1);
+            selectedYear.appendChild(option2);
+            selectedYear.appendChild(option3);
+        } else if(selected.selectedIndex == 2) {
+            var option = document.createElement("option");
+            option.text = "";
+            option.value = "";
+            
+            var option1 = document.createElement("option");
+            option1.text = "I Year";
+            option1.value = "I Year";
+            
+            var option2 = document.createElement("option");
+            option2.text = "II Year";
+            option2.value = "II Year";
+            
+            var option3 = document.createElement("option");
+            option3.text = "III Year";
+            option3.value = "III Year";
+            
+            selectedYear.appendChild(option);
+            selectedYear.appendChild(option1);
+            selectedYear.appendChild(option2);
+            
+        }
+     }
+    
+    
+      
+    function changeSchool() {
+        
+        console.log("clicked");
+        
+        document.getElementById("selectDepartment").options.length = 0;
+        
+        var selectedProg = document.getElementById("selectProgram");
+        var selectedDepartment = document.getElementById("selectDepartment");
+        
+        if(selectedProg.selectedIndex == 1) {
+            var option = document.createElement("option");
+            option.text = "";
+            option.value = "";
+            
+            var option1 = document.createElement("option");
+            option1.text = "MBA";
+            option1.value = "MBA";
+            
+            var option2 = document.createElement("option");
+            option2.text = "Business Administration and IT";
+            option2.value = "Business Administration and IT";
+   
+            selectedDepartment.appendChild(option);
+            selectedDepartment.appendChild(option1);
+            selectedDepartment.appendChild(option2);
+            
+        } else if(selectedProg.selectedIndex == 2) {
+            var option = document.createElement("option");
+            option.text = "";
+            option.value = "";
+            
+            var option1 = document.createElement("option");
+            option1.text = "Industrial Engineering";
+            option1.value = "Industrial Engineering";
+            
+            var option2 = document.createElement("option");
+            option2.text = "Software Engineering";
+            option2.value = "Software Engineering";
+    
+            selectedDepartment.appendChild(option);
+            selectedDepartment.appendChild(option1);
+            selectedDepartment.appendChild(option2);
+        
+        }
+        
+    }
+    
 </script>       ';
 ?>
         

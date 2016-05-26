@@ -71,7 +71,7 @@ function TestIT($ip, $ip1, $ip2) {
 };
 
 
-if (TestIT($ip, $ip1, $ip2)) {
+if (!TestIT($ip, $ip1, $ip2)) {
     echo "<h4 class='alert alert-danger'><span style='text-align:left;'>Your IP has been banned " . $ip . "</h4>";
     echo "<br><div class='nice-center'> <p  class=\"table\" ><a class=\"btn btn-info btn-block\" style=\"margin-right: 75%\" href=\"../welcomestudent.php\">Back</a></p></div>";
     include('../includes/footer_login_2.html');

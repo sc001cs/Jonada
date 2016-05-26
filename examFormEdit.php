@@ -353,7 +353,7 @@ if (mysqli_num_rows($r) == 1) { // Valid user ID, show the form.
     <div class="input-prepend ">
         <span class="add-on">Code Activation</span>
         <input class="input-mesatarrr" type="text" id="prependedInput"  style="width: 466px;" name="codeactivation" 
-         name="codeactivation"   value="' . $row[9] . '" />
+         name="codeactivation"   value="' . $row[16] . '" />
     </div> <br>
 
     <input type="hidden"  value="' . $id . '" name="idlecture" />      
@@ -858,7 +858,7 @@ if (mysqli_num_rows($r) == 1) { // Valid user ID, show the form.
         
         document.getElementById("selectDepartment").options.length = 0;
         
-        var selectedProg = document.getElementById("selectProgram");
+        var selectedProg = document.getElementById("selectSchool");
         var selectedDepartment = document.getElementById("selectDepartment");
         
         if(selectedProg.selectedIndex == 1) {
@@ -898,6 +898,112 @@ if (mysqli_num_rows($r) == 1) { // Valid user ID, show the form.
         }
         
     }
+    
+    $(document).ready(function() { 
+
+        var selectedYear = document.getElementById("selectAcademicYear");
+        var indexSelected = selectedYear.selectedIndex;
+
+        document.getElementById("selectAcademicYear").options.length = 0;
+        
+        var selected = document.getElementById("selectProgram");
+
+        if(selected.selectedIndex == 1) {
+            var option = document.createElement("option");
+            option.text = "";
+            option.value = "";
+            
+            var option1 = document.createElement("option");
+            option1.text = "I Year";
+            option1.value = "I Year";
+            
+            var option2 = document.createElement("option");
+            option2.text = "II Year";
+            option2.value = "II Year";
+            
+            var option3 = document.createElement("option");
+            option3.text = "III Year";
+            option3.value = "III Year";
+            
+            selectedYear.appendChild(option);
+            selectedYear.appendChild(option1);
+            selectedYear.appendChild(option2);
+            selectedYear.appendChild(option3);
+            
+            selectedYear.selectedIndex = indexSelected;
+        } else if(selected.selectedIndex == 2) {
+            var option = document.createElement("option");
+            option.text = "";
+            option.value = "";
+            
+            var option1 = document.createElement("option");
+            option1.text = "I Year";
+            option1.value = "I Year";
+            
+            var option2 = document.createElement("option");
+            option2.text = "II Year";
+            option2.value = "II Year";
+            
+            var option3 = document.createElement("option");
+            option3.text = "III Year";
+            option3.value = "III Year";
+            
+            selectedYear.appendChild(option);
+            selectedYear.appendChild(option1);
+            selectedYear.appendChild(option2);
+            
+            selectedYear.selectedIndex = indexSelected;
+        }
+
+        var selectedDepartment = document.getElementById("selectDepartment");
+        var depIndexSelected = selectedDepartment.selectedIndex;
+        document.getElementById("selectDepartment").options.length = 0;
+        
+        console.log(depIndexSelected);
+        
+        var selectedProg = document.getElementById("selectSchool");
+        
+        if(selectedProg.selectedIndex == 1) {
+            var option = document.createElement("option");
+            option.text = "";
+            option.value = "";
+            
+            var option1 = document.createElement("option");
+            option1.text = "MBA";
+            option1.value = "MBA";
+            
+            var option2 = document.createElement("option");
+            option2.text = "Business Administration and IT";
+            option2.value = "Business Administration and IT";
+   
+            selectedDepartment.appendChild(option);
+            selectedDepartment.appendChild(option1);
+            selectedDepartment.appendChild(option2);
+            
+            selectedDepartment.selectedIndex = depIndexSelected-2;
+            
+        } else if(selectedProg.selectedIndex == 2) {
+            var option = document.createElement("option");
+            option.text = "";
+            option.value = "";
+            
+            var option1 = document.createElement("option");
+            option1.text = "Industrial Engineering";
+            option1.value = "Industrial Engineering";
+            
+            var option2 = document.createElement("option");
+            option2.text = "Software Engineering";
+            option2.value = "Software Engineering";
+    
+            selectedDepartment.appendChild(option);
+            selectedDepartment.appendChild(option1);
+            selectedDepartment.appendChild(option2);
+            
+            selectedDepartment.selectedIndex = depIndexSelected;
+        }
+
+
+    });
     
 </script>
 

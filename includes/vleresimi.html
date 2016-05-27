@@ -511,6 +511,41 @@ shuffle($array10);
         questions with <u>seriousness and sincerity</u>. You note that all your answers will not contain your name and
         will be treated confidentially. </p>
 
+    <div class="nice-center">
+
+        <script src="countdown.js"></script>
+
+        <script>
+
+            function doneHandler(result) {
+
+                // Result is a javascript Date object, containing the deadline time.
+                //
+                // 		NOTES on the javascript Date object:
+                // 			- months are 0-11, not 1-12
+                // 			- "day" is day of the week (0-6) representing sunday-saturday
+                // 			- "date" is the day of the month (0-31)
+
+                var examDone = "Exam Done!";
+
+                alert(examDone);
+            }
+
+            var myCountdownTest = new Countdown({
+                time: 7200,
+                width	: 300,
+                height	: 80,
+                padding:0.6,
+                rangeHi:"hour",
+                onComplete : doneHandler
+            });
+
+
+
+        </script>
+
+    </div>
+
     <form id="form" action="" method="POST">
 
         <div class="ugly-border"></div>

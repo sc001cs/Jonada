@@ -57,7 +57,7 @@ function TestIT($ip, $ip1, $ip2) {
 
     while ($ip1 < $ip2) {
 
-        $ipCheck = '192.168.1.'.$ip1;
+        $ipCheck = '192.168.10.'.$ip1;
 
         if ($ip == $ipCheck) {
             return true;
